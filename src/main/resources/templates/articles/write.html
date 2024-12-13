@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/base}">
+<head>
+    <title>写文章</title>
+</head>
+<body>
+    <div layout:fragment="content">
+        <div class="container mt-4">
+            <div class="row justify-content-center">
+                <div class="col-lg-10">
+                    <div class="card">
+                        <div class="card-header">
+                            <h4 class="mb-0">写文章</h4>
+                        </div>
+                        <div class="card-body">
+                            <form th:action="@{/articles/save}" method="post">
+                                <div class="mb-3">
+                                    <label for="title" class="form-label">标题</label>
+                                    <input type="text" class="form-control" id="title" name="title" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="content" class="form-label">内容</label>
+                                    <textarea class="form-control" id="content" name="content" rows="10" required></textarea>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="tags" class="form-label">标签</label>
+                                    <input type="text" class="form-control" id="tags" name="tags" 
+                                           placeholder="使用逗号分隔多个标签">
+                                </div>
+                                <div class="text-end">
+                                    <button type="submit" class="btn btn-primary">发布文章</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 可选：添加富文本编辑器的脚本 -->
+    <th:block layout:fragment="scripts">
+        <!-- 这里可以添加富文本编辑器的初始化脚本 -->
+    </th:block>
+</body>
+</html> 

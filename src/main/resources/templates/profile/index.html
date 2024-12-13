@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/base}">
+<head>
+    <title>个人主页</title>
+</head>
+<body>
+    <div layout:fragment="content">
+        <div class="container mt-5">
+            <div class="row">
+                <!-- 左侧个人信息 -->
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-body text-center">
+                            <img th:if="${user.avatar}" th:src="@{'/uploads/avatars/' + ${user.avatar}}" 
+                                 class="rounded-circle mb-3" style="width: 150px; height: 150px; object-fit: cover;"
+                                 alt="用户头像">
+                            <img th:unless="${user.avatar}" th:src="@{/images/default-avatar.png}"
+                                 class="rounded-circle mb-3" style="width: 150px; height: 150px; object-fit: cover;"
+                                 alt="默认头像">
+                            <h4 class="card-title" th:text="${user.nickname}">用户昵称</h4>
+                            <p class="text-muted" th:text="${user.username}">用户名</p>
+                            <a th:href="@{/profile/settings}" class="btn btn-outline-primary">编辑资料</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 右侧文章列表 -->
+                <div class="col-md-8">
+                    <div class="card">
+                        <div class="card-header">
+                            <h5 class="mb-0">我的文章</h5>
+                        </div>
+                        <div class="card-body">
+                            <!-- 文章列表 -->
+                            <div th:if="${articles.empty}" class="text-center text-muted py-5">
+                                <p>还没有发布过文章</p>
+                                <a th:href="@{/articles/write}" class="btn btn-primary">写文章</a>
+                            </div>
+                            
+                            <div th:unless="${articles.empty}">
+                                <div th:each="article : ${articles}" class="mb-4">
+                                    <h5>
+                                        <a th:href="@{'/articles/' + ${article.id}}" 
+                                           th:text="${article.title}"
+                                           class="text-decoration-none">文章标题</a>
+                                    </h5>
+                                    <p class="text-muted">
+                                        <small th:text="${#temporals.format(article.createdAt, 'yyyy-MM-dd HH:mm')}">发布时间</small>
+                                    </p>
+                                    <p th:text="${#strings.abbreviate(article.content, 200)}">文章内容预览...</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html> 

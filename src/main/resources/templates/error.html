@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/base}">
+<head>
+    <title>错误</title>
+</head>
+<body>
+    <div layout:fragment="content">
+        <div class="container mt-5">
+            <div class="row justify-content-center">
+                <div class="col-md-8">
+                    <div class="card">
+                        <div class="card-header">
+                            <h4 class="mb-0">发生错误</h4>
+                        </div>
+                        <div class="card-body">
+                            <div th:if="${status}" class="mb-3">
+                                <h5>错误代码：<span th:text="${status}">500</span></h5>
+                            </div>
+                            <div th:if="${error}" class="mb-3">
+                                <h5>错误信息：<span th:text="${error}">Internal Server Error</span></h5>
+                            </div>
+                            <div th:if="${message}" class="mb-3">
+                                <p th:text="${message}">错误详情</p>
+                            </div>
+                            <div class="mt-4">
+                                <a href="/" class="btn btn-primary">返回首页</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html> 

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/base}">
+<head>
+    <title th:text="${article.title}">文章标题</title>
+</head>
+<body>
+    <div layout:fragment="content">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-10">
+                    <article class="blog-post">
+                        <h1 class="blog-post-title" th:text="${article.title}">文章标题</h1>
+                        <p class="blog-post-meta">
+                            <span th:text="${#temporals.format(article.createdAt, 'yyyy-MM-dd HH:mm')}">发布时间</span>
+                            作者：<span th:text="${article.authorUsername}">作者</span>
+                        </p>
+                        <div class="blog-post-content" th:utext="${article.content}">
+                            文章内容
+                        </div>
+                        <div class="blog-post-tags mt-4">
+                            <span class="badge bg-primary me-2" 
+                                  th:each="tag : ${#strings.arraySplit(article.tags, ',')}" 
+                                  th:text="${tag}">标签</span>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html> 

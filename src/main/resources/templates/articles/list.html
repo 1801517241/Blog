@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/base}">
+<head>
+    <title>文章列表</title>
+</head>
+<body>
+    <div layout:fragment="content">
+        <div class="container">
+            <div class="d-flex justify-content-between align-items-center mb-4">
+                <h2>文章列表</h2>
+                <a th:href="@{/articles/write}" class="btn btn-primary">
+                    <i class="fas fa-pen me-2"></i>写文章
+                </a>
+            </div>
+            
+            <div class="row">
+                <div class="col-md-12">
+                    <div th:if="${articles.empty}" class="alert alert-info">
+                        暂无文章
+                    </div>
+                    <div th:each="article : ${articles}" class="card mb-4">
+                        <div class="card-body">
+                            <h3 class="card-title" th:text="${article.title}">文章标题</h3>
+                            <p class="card-text text-muted" th:text="${#strings.abbreviate(article.content, 200)}">
+                                文章内容预览...
+                            </p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div>
+                                    <span class="badge bg-primary me-2" th:each="tag : ${#strings.arraySplit(article.tags, ',')}" 
+                                          th:text="${tag}">标签</span>
+                                </div>
+                                <div class="text-muted">
+                                    <small th:text="${#temporals.format(article.createdAt, 'yyyy-MM-dd HH:mm')}">发布时间</small>
+                                    <span class="mx-2">·</span>
+                                    <small th:text="${article.authorUsername}">作者</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html> 

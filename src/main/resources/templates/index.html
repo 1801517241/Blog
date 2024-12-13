@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/base}">
+<head>
+    <title>首页</title>
+</head>
+<body>
+    <div layout:fragment="content">
+        <div class="row">
+            <!-- 文章列表 -->
+            <div class="col-md-8">
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <h2 class="card-title">欢迎来到博客系统</h2>
+                        <p class="card-text">这是一个使用Spring Boot和Thymeleaf构建的博客系统。</p>
+                    </div>
+                </div>
+                
+                <!-- 示例文章卡片 -->
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <h3 class="card-title">示例文章标题</h3>
+                        <p class="text-muted">
+                            <i class="fas fa-user me-2"></i>作者名称
+                            <i class="fas fa-calendar-alt mx-2"></i>2024-01-01
+                            <i class="fas fa-comments mx-2"></i>5条评论
+                        </p>
+                        <p class="card-text">这是文章的简短描述，用于在列表页面展示...</p>
+                        <a href="#" class="btn btn-primary">阅读更多</a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 侧边栏 -->
+            <div class="col-md-4">
+                <!-- 关于我 -->
+                <div class="card mb-4">
+                    <div class="card-header">
+                        <h4 class="mb-0"><i class="fas fa-user me-2"></i>关于我</h4>
+                    </div>
+                    <div class="card-body">
+                        <p>欢迎来到我的博客！这里记录了我的学习和生活。</p>
+                    </div>
+                </div>
+                
+                <!-- 分类 -->
+                <div class="card mb-4">
+                    <div class="card-header">
+                        <h4 class="mb-0"><i class="fas fa-folder me-2"></i>分类</h4>
+                    </div>
+                    <div class="card-body">
+                        <div class="list-group list-group-flush">
+                            <a href="#" class="list-group-item d-flex justify-content-between align-items-center">
+                                技术
+                                <span class="badge bg-primary rounded-pill">12</span>
+                            </a>
+                            <a href="#" class="list-group-item d-flex justify-content-between align-items-center">
+                                生活
+                                <span class="badge bg-primary rounded-pill">8</span>
+                            </a>
+                            <a href="#" class="list-group-item d-flex justify-content-between align-items-center">
+                                随笔
+                                <span class="badge bg-primary rounded-pill">5</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 标签云 -->
+                <div class="card mb-4">
+                    <div class="card-header">
+                        <h4 class="mb-0"><i class="fas fa-tags me-2"></i>标签云</h4>
+                    </div>
+                    <div class="card-body">
+                        <a href="#" class="btn btn-outline-primary btn-sm m-1">Java</a>
+                        <a href="#" class="btn btn-outline-primary btn-sm m-1">Spring</a>
+                        <a href="#" class="btn btn-outline-primary btn-sm m-1">MySQL</a>
+                        <a href="#" class="btn btn-outline-primary btn-sm m-1">Docker</a>
+                        <a href="#" class="btn btn-outline-primary btn-sm m-1">Linux</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html> 

@@ -1,0 +1,4 @@
+/* 移动到static目录下 */
+body {
+    background-color: red !important; /* 使用明显的颜色便于测试 */
+} 

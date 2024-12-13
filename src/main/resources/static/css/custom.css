@@ -1,0 +1,32 @@
+/* 自定义颜色 */
+:root {
+    --primary-color: #007bff;
+    --secondary-color: #6c757d;
+    --success-color: #28a745;
+    --info-color: #17a2b8;
+}
+
+/* 自定义间距 */
+.mt-6 {
+    margin-top: 4rem;
+}
+
+.mb-6 {
+    margin-bottom: 4rem;
+}
+
+/* 自定义阴影 */
+.custom-shadow {
+    box-shadow: 0 4px 6px rgba(0,0,0,.1);
+}
+
+/* 响应式调整 */
+@media (max-width: 768px) {
+    .main-content {
+        padding-top: 40px;
+    }
+    
+    .jumbotron {
+        padding: 2rem !important;
+    }
+} 

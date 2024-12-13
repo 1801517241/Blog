@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/base}">
+<head>
+    <title>关于我们</title>
+</head>
+<body>
+    <div layout:fragment="content">
+        <div class="card">
+            <div class="card-body">
+                <h2 class="card-title mb-4">关于我们</h2>
+                <div class="row">
+                    <div class="col-md-8">
+                        <p class="lead">欢迎来到我们的博客系统！</p>
+                        <p>这是一个使用Spring Boot和Thymeleaf构建的现代化博客系统。我们致力于提供最好的写作和阅读体验。</p>
+                        <h4 class="mt-4">我们的特点</h4>
+                        <ul class="list-unstyled">
+                            <li><i class="fas fa-check-circle text-success me-2"></i>简洁优雅的设计</li>
+                            <li><i class="fas fa-check-circle text-success me-2"></i>响应式布局</li>
+                            <li><i class="fas fa-check-circle text-success me-2"></i>用户友好的���面</li>
+                            <li><i class="fas fa-check-circle text-success me-2"></i>强大的编辑功能</li>
+                        </ul>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card bg-light">
+                            <div class="card-body">
+                                <h5 class="card-title">联系我们</h5>
+                                <p><i class="fas fa-envelope me-2"></i>Email: contact@example.com</p>
+                                <p><i class="fas fa-phone me-2"></i>电话: (123) 456-7890</p>
+                                <div class="social-links mt-3">
+                                    <a href="#" class="btn btn-outline-primary me-2"><i class="fab fa-github"></i></a>
+                                    <a href="#" class="btn btn-outline-primary me-2"><i class="fab fa-weixin"></i></a>
+                                    <a href="#" class="btn btn-outline-primary"><i class="fab fa-weibo"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html> 
